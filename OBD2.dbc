@@ -52,7 +52,29 @@ BO_ 5 Engine_Coolant_Temperature: 1 Service__01
    SG_ Engine_Coolant_Temp : 0|8@1- (1,-40) [-40|215] "deg_C" Service__01
 
 BO_ 6 Short_Term_Fuel_Trim_Bank1: 1 Service__01
-   SG_ InstantFuelTrim : 0|8@1- (0.781,-100) [-100|99.2] "%" Service__01
+   SG_ InstantFuelTrimBank1 : 0|8@1- (0.781,-100) [-100|99.2] "%" Service__01
+
+BO_ 7 Long_Term_Fuel_Trim_Bank1: 1 Service__01
+   SG_ LongTermFuelTrimBank1 : 0|8@1- (0.781,-100) [-100|99.2] "%" Service__01
+
+BO_ 8 Short_Term_Fuel_Trim_Bank2: 1 Service__01
+   SG_ InstantFuelTrimBank2 : 0|8@1- (0.781,-100) [-100|99.2] "%" Service__01
+
+BO_ 9 Long_Term_Fuel_Trim_Bank1: 1 Service__01
+   SG_ LongTermFuelTrimBank2 : 0|8@1- (0.781,-100) [-100|99.2] "%" Service__01
+
+BO_ 10 Fuel_Pressure: 1 Service__01
+   SG_ Fuel_Pressure : 0|8@1+ (3,0) [0|765] "kPa" Service__01
+
+BO_ 11 Intake_Manifold_Absolute_Pressure: 1 Service__01
+   SG_ IMAP : 0|8@1+ (1,0) [0|255] "kPa" Service__01
+
+BO_ 12 Engine_RPM: 2 Service__01
+   SG_ A : 7|8@0+ (1,0) [0|6000] "RPM" Service__01
+   SG_ B : 15|8@0+ (1,0) [0|6000] "RPM" Service__01
+
+BO_ 13 Vehicle_Speed: 1 Service__01
+   SG_ Vehicle_Speed : 0|8@1+ (1,0) [0|255] "kph" Vector__XXX
 
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
@@ -64,6 +86,9 @@ CM_ BO_ 1 "(Includes malfunction indicator lamp (MIL) status and number of DTCs.
 CM_ SG_ 1 MIL_ON_OFF "Iindicates_if_the_MIL_is_on_(or_should_be_on)";
 CM_ SG_ 1 DTC_COUNT "Number_of_confirmed_emissions-related_DTCs_available_for_display.";
 CM_ SG_ 1 RESERVED "Reserved_(should_be_0)";
+CM_ SG_ 10 Fuel_Pressure "Fuel_pressure_from_fuel_tank";
+CM_ SG_ 12 A "To_calculate_RPM_(256A+B)/4";
+CM_ SG_ 12 B "To_calculate_RPM_(256A+B)/4";
 VAL_ 1 NO_NAME 0 "Spark_ignition_monitors_supported" 1 "Compression_ignition_monitors_supported_(e.g._Diesel_engines)";
 VAL_ 3 Fuel_System_1 1 "Open_loop_due_to_insufficient_engine_temperature" 2 "Closed_loop,_using_oxygen_sensor_feedback_to_determine_fuel_mix" 4 "Open_loop_due_to_engine_load_OR_fuel_cut_due_to_deceleration" 8 "Open_loop_due_to_system_failure" 16 "Closed_loop,_using_at_least_one_oxygen_sensor_but_there_is_a_fault_in_the_feedback_system";
 VAL_ 3 Fuel_System_2 1 "Open_loop_due_to_insufficient_engine_temperature" 2 "Closed_loop,_using_oxygen_sensor_feedback_to_determine_fuel_mix" 4 "Open_loop_due_to_engine_load_OR_fuel_cut_due_to_deceleration" 8 "Open_loop_due_to_system_failure" 16 "Closed_loop,_using_at_least_one_oxygen_sensor_but_there_is_a_fault_in_the_feedback_system";
