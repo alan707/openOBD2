@@ -51,8 +51,8 @@ BO_ 4 Calculated_engine_load: 1 Service__01
 BO_ 5 Engine_Coolant_Temperature: 1 Service__01
    SG_ Engine_Coolant_Temp : 0|8@1- (1,-40) [-40|215] "deg_C" Service__01
 
-BO_ 6 Short_term_fuel_trim—Bank1: 1 Service__01
-   SG_ FuelTrim1 : 0|8@1- (0.7812,-100) [-100|99.2] "%" Service__01
+BO_ 6 Short_Term_Fuel_Trim_Bank1: 1 Service__01
+   SG_ InstantFuelTrim : 0|8@1- (0.781,-100) [-100|99.2] "%" Service__01
 
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
