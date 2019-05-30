@@ -89,6 +89,17 @@ BO_ 16 MAF_air_flow_rate: 2 Service__01
 BO_ 17 Throttle_Position: 1 Service__01
    SG_ Throttle_Position : 0|8@1- (0.392,0) [0|100] "%" Service__01
 
+BO_ 67 Absolute_Load_Value: 2 Service__01
+   SG_ A : 0|8@1+ (100.352,0) [0|25700] "%" Service__01
+   SG_ B : 8|8@1+ (0.392,0) [0|25700] "%" Vector__XXX
+
+BO_ 69 Relative_Throttle_Position: 1 Service__01
+   SG_ Rel_Throttle_Position : 0|8@1+ (0.392,0) [0|100] "%" Service__01
+
+BO_ 31 Run_Since_Engine_Start: 2 Service__01
+   SG_ A : 0|8@1+ (256,0) [0|65535] "seconds" Service__01
+   SG_ B : 8|8@1+ (1,0) [0|65535] "seconds" Service__01
+
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
 BA_DEF_ BO_ "isj1939dbc" INT 0 0;
@@ -103,8 +114,14 @@ CM_ SG_ 10 Fuel_Pressure "Fuel_pressure_from_fuel_tank";
 CM_ SG_ 12 A "To_calculate_RPM_(256A+B)/4";
 CM_ SG_ 12 B "To_calculate_RPM_(256A+B)/4";
 CM_ SG_ 14 Spark_Timing_Advance "Spark_Timing_Advance";
+CM_ BO_ 15 "Intake air temperature in degrees Celsius";
 CM_ SG_ 15 Intake_Air_Temp "Intake_Air_Temperature";
+CM_ BO_ 16 "The amount of air flowing through the engine in grams per second";
 CM_ SG_ 16 MAF_B "units_in_grams/sec";
+CM_ BO_ 67 "Absolute engine load";
+CM_ SG_ 67 A "A+B";
+CM_ SG_ 67 B "A+B";
+CM_ BO_ 31 "Run time since engine start";
 VAL_ 1 NO_NAME 0 "Spark_ignition_monitors_supported" 1 "Compression_ignition_monitors_supported_(e.g._Diesel_engines)";
 VAL_ 3 Fuel_System_1 1 "Open_loop_due_to_insufficient_engine_temperature" 2 "Closed_loop,_using_oxygen_sensor_feedback_to_determine_fuel_mix" 4 "Open_loop_due_to_engine_load_OR_fuel_cut_due_to_deceleration" 8 "Open_loop_due_to_system_failure" 16 "Closed_loop,_using_at_least_one_oxygen_sensor_but_there_is_a_fault_in_the_feedback_system";
 VAL_ 3 Fuel_System_2 1 "Open_loop_due_to_insufficient_engine_temperature" 2 "Closed_loop,_using_oxygen_sensor_feedback_to_determine_fuel_mix" 4 "Open_loop_due_to_engine_load_OR_fuel_cut_due_to_deceleration" 8 "Open_loop_due_to_system_failure" 16 "Closed_loop,_using_at_least_one_oxygen_sensor_but_there_is_a_fault_in_the_feedback_system";
