@@ -69,7 +69,6 @@ BO_ 10 Fuel_Pressure: 1 Service__01
 BO_ 11 Intake_Manifold_Absolute_Pressure: 1 Service__01
    SG_ IMAP : 0|8@1+ (1,0) [0|255] "kPa" Service__01
 
-#TODO FIX RPM FORMULA
 BO_ 12 Engine_RPM: 2 Service__01
    SG_ A : 7|8@0+ (1,0) [0|6000] "RPM" Service__01
    SG_ B : 15|8@0+ (1,0) [0|6000] "RPM" Service__01
@@ -83,10 +82,12 @@ BO_ 14 Spark_Timing_Advance: 1 Service__01
 BO_ 15 Intake_Air_Temperature: 1 Service__01
    SG_ Intake_Air_Temp : 0|8@1- (1,-40) [-40|215] "deg_C" Service__01
 
-#TODO FIX MAF_A and MAF_B formula
 BO_ 16 MAF_air_flow_rate: 2 Service__01
    SG_ MAF_A : 0|8@1+ (1,0) [0|0] "" Vector__XXX
    SG_ MAF_B : 7|32@0- (1,0) [0|655.35] "g/s" Vector__XXX
+
+BO_ 17 Throttle_Position: 1 Service__01
+   SG_ Throttle_Position : 0|8@1- (0.392,0) [0|100] "%" Service__01
 
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
